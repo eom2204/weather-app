@@ -10,6 +10,7 @@ import {getForecast} from "./api/WeatherService";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
+import Logo from "./assets/images/logo-color-transparent.png";
 
 
 function App() {
@@ -40,7 +41,7 @@ function App() {
                                 p: 1, height: {xs: '64px', sm: '98px', md: '124px'}, width: 'auto',
                             }}
                             alt="logo"
-                            src="/hr-logo-color-on-transparent.svg"
+                            src={Logo}
                         />
                     </Grid>
                     <Grid item xs={12}>
