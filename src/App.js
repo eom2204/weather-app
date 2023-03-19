@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import {HashRouter} from 'react-router-dom';
 import './App.css';
 
 import Weather from "./components/Weather/Weather";
@@ -23,56 +22,48 @@ function App() {
         let [city, countryCode] = inputCityData.label.split(',')
 
         getCurrentWeather({
-            city: city.trim(),
-            countryCode: countryCode.trim()
+            city: city.trim(), countryCode: countryCode.trim()
         }).then(currentWeatherData => setWeatherData(currentWeatherData));
 
         getForecast({
-            lat: lat.trim(),
-            lon: lon.trim(),
+            lat: lat.trim(), lon: lon.trim(),
         }).then(forecastData => setForecastData(forecastData));
     }
 
-    return (
-        <HashRouter>
-            <div className="App">
-                <Container>
-                    <Grid container columnSpacing={2} rowSpacing={2}>
-                        <Grid item xs={12}>
-                            <Box
-                                component="img"
-                                sx={{
-                                    p: 1,
-                                    height: {xs: '64px', sm: '98px', md: '124px'},
-                                    width: 'auto',
-                                }}
-                                alt="logo"
-                                src="/hr-logo-color-on-transparent.svg"
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <Box>
-                                <Form onDataRecived={getWeatherData}></Form>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={12} rowSpacing={2}>
-                            {weatherData && <Weather city={weatherData.name} country={weatherData.sys.country}
-                                                     currentSky={weatherData.weather[0].main}
-                                                     currentSkyIcon={weatherData.weather[0].icon}
-                                                     currentDesc={weatherData.weather[0].description}
-                                                     currentHumidity={weatherData.main.humidity}
-                                                     currentTemp={weatherData.main.temp}
-                                                     realTemp={weatherData.main.feels_like}
-                                                     wind={weatherData.wind.speed}></Weather>}
-                        </Grid>
-                        <Grid container item xs={12} rowSpacing={2}>
-                            <Forecast forecastData={forecastData}></Forecast>
-                        </Grid>
+    return (<div className="App">
+            <Container>
+                <Grid container columnSpacing={2} rowSpacing={2}>
+                    <Grid item xs={12}>
+                        <Box
+                            component="img"
+                            sx={{
+                                p: 1, height: {xs: '64px', sm: '98px', md: '124px'}, width: 'auto',
+                            }}
+                            alt="logo"
+                            src="/hr-logo-color-on-transparent.svg"
+                        />
                     </Grid>
-                </Container>
-            </div>
-        </HashRouter>
-    );
+                    <Grid item xs={12}>
+                        <Box>
+                            <Form onDataRecived={getWeatherData}></Form>
+                        </Box>
+                    </Grid>
+                    <Grid item xs={12} rowSpacing={2}>
+                        {weatherData && <Weather city={weatherData.name} country={weatherData.sys.country}
+                                                 currentSky={weatherData.weather[0].main}
+                                                 currentSkyIcon={weatherData.weather[0].icon}
+                                                 currentDesc={weatherData.weather[0].description}
+                                                 currentHumidity={weatherData.main.humidity}
+                                                 currentTemp={weatherData.main.temp}
+                                                 realTemp={weatherData.main.feels_like}
+                                                 wind={weatherData.wind.speed}></Weather>}
+                    </Grid>
+                    <Grid container item xs={12} rowSpacing={2}>
+                        <Forecast forecastData={forecastData}></Forecast>
+                    </Grid>
+                </Grid>
+            </Container>
+        </div>);
 }
 
 export default App;
