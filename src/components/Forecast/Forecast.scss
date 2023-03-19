@@ -1,0 +1,22 @@
+.forecast {
+
+  &--visible {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &--hidden {
+    display: none;
+  }
+
+  &__button {
+
+    &--visible {
+      display: block;
+    }
+
+    &--hidden {
+      display: none;
+    }
+  }
+}
