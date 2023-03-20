@@ -29,3 +29,4 @@ const groupItemsByDay = (array) => {
         return groups;
     }, []);
 }
+
