@@ -5,11 +5,5 @@
 .forecast--hidden {
   display: none;
 }
-.forecast__button--visible {
-  display: block;
-}
-.forecast__button--hidden {
-  display: none;
-}
 
 /*# sourceMappingURL=Forecast.css.map */

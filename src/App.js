@@ -24,11 +24,15 @@ function App() {
 
         getCurrentWeather({
             city: city.trim(), countryCode: countryCode.trim()
-        }).then(currentWeatherData => setWeatherData(currentWeatherData));
+        }).then(currentWeatherData => {setWeatherData(currentWeatherData);
+            console.log("Current weather: ", currentWeatherData);
+        });
 
         getForecast({
             lat: lat.trim(), lon: lon.trim(),
-        }).then(forecastData => setForecastData(forecastData));
+        }).then(forecastData => {setForecastData(forecastData);
+            console.log("Forecast: ", forecastData);
+        });
     }
 
     return (<div className="App">

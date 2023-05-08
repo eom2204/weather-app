@@ -2,13 +2,14 @@ import React, {useState} from "react";
 
 import ForecastCard from "../ForecastCard/ForecastCard";
 import "./Forecast.scss";
+
+import moment from "moment";
 import Button from "@mui/material/Button";
 import ThermostatIcon from '@mui/icons-material/Thermostat';
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import AccordionDetails from "@mui/material/AccordionDetails";
-import moment from "moment";
 import CycloneIcon from '@mui/icons-material/Cyclone';
 import Grid from "@mui/material/Grid";
 
